@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-citizen',
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CitizenComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private fb: FormBuilder
+  ) {}
 
   ngOnInit(): void {
+    this.setupComponents();
   }
+
+  setupComponents() {
+    console.log('x');
+  }
+
+  citizenForm = this.fb.group({
+    fullname: [''],
+    address: [''],
+    localname: ['']
+  });
 
 }
