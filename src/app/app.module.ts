@@ -7,6 +7,7 @@ import { CitizenComponent } from './citizen/citizen.component';
 import { CityHallComponent } from './city-hall/city-hall.component';
 import { DisplayComponent } from './display/display.component';
 import { PoModule } from '@po-ui/ng-components';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,9 @@ import { PoModule } from '@po-ui/ng-components';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    PoModule
+    PoModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
