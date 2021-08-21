@@ -8,13 +8,19 @@ import { CityHallComponent } from './city-hall/city-hall.component';
 import { DisplayComponent } from './display/display.component';
 import { PoModule } from '@po-ui/ng-components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FillFormComponent } from './citizen/fill-form/fill-form.component';
+import { DisplayFormHallComponent } from './city-hall/display-form-hall/display-form-hall.component';
+import { DisplayFormCitizenComponent } from './display/display-form-citizen/display-form-citizen.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CitizenComponent,
     CityHallComponent,
-    DisplayComponent
+    DisplayComponent,
+    FillFormComponent,
+    DisplayFormHallComponent,
+    DisplayFormCitizenComponent
   ],
   imports: [
     BrowserModule,

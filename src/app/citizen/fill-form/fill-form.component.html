@@ -1,0 +1,13 @@
+<div class="citizen-form">
+    <form [formGroup]="citizenForm">
+        <po-container class="po-xl-12 po-lg-12 po-md-12 po-sm-12">
+            <po-input class="po-xl-6 po-lg-6 po-md-6 po-sm-6" p-label="Nome Completo" formControlName="fullName"></po-input>
+            <po-email class="po-xl-6 po-lg-6 po-md-6 po-sm-6" name="mailAddress" p-label="Endereço de Email" formControlName="mailAddress"></po-email>  
+            <po-input class="po-xl-6 po-lg-6 po-md-6 po-sm-6" name="localname" p-label="Nome do Local" formControlName="localName"></po-input>
+            <po-decimal class="po-xl-6 po-lg-6 po-md-6 po-sm-6" name="value" p-decimals-length="2" formControlName="value" p-icon="po-icon-finance" p-label="Valor para Utilização" p-thousand-maxlength="13"></po-decimal>
+            <po-input class="po-xl-6 po-lg-6 po-md-6 po-sm-6" name="localAddress" p-label="Endereço do Local" formControlName="localAddress"></po-input>
+            <po-multiselect class="po-xl-6 po-lg-6 po-md-6 po-sm-6" name="allowedActivities" formControlName="allowedActivities" p-label="Atividades Permitidas" [p-options]="localActivities"> </po-multiselect>
+            <po-button class="po-xl-12 po-lg-12 po-md-12 po-sm-12 po-mt-3" (p-click)="sendForm()" p-label="Enviar"></po-button>
+        </po-container>
+    </form>
+</div>

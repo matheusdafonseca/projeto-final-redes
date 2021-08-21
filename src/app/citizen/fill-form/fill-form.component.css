@@ -1,0 +1,9 @@
+.citizen-form {
+    margin-left: 25%;
+    width: 50vw;
+    height: 42vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}

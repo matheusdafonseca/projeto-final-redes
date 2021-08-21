@@ -9,29 +9,10 @@ import { PoMultiselectOption } from '@po-ui/ng-components';
 })
 export class CitizenComponent implements OnInit {
 
-  localActivities: Array<PoMultiselectOption> = [
-    { value: '1', label: 'Futebol' },
-    { value: '2', label: 'Ginástica' },
-    { value: '3', label: 'Basquete' },
-    { value: '4', label: 'Outros' }
-  ];
-
   constructor(
-    private fb: FormBuilder
   ) {}
 
   ngOnInit(): void {
-    this.setupComponents();
   }
-
-  setupComponents() {
-    console.log('x');
-  }
-
-  citizenForm = this.fb.group({
-    fullname: [''],
-    address: [''],
-    localname: ['']
-  });
 
 }

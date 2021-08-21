@@ -1,17 +1,5 @@
 <div class="wrap"> 
     <div class="po-lg-12 po-text-center po-font-subtitle title">Formulário de Cadastro de Ambientes Públicos Para Práticas Desportivas</div>
 
-    <div class="citizen-form">
-        <form [formGroup]="citizenForm">
-            <po-container class="po-xl-12 po-lg-12 po-md-12 po-sm-12">
-                <po-input class="po-xl-6 po-lg-6 po-md-6 po-sm-6" name="fullname" p-label="Nome Completo"></po-input>
-                <po-email class="po-xl-6 po-lg-6 po-md-6 po-sm-6" name="address" p-label="Endereço de Email"></po-email>  
-                <po-input class="po-xl-6 po-lg-6 po-md-6 po-sm-6" name="localname" p-label="Nome do Local"></po-input>
-                <po-decimal class="po-xl-6 po-lg-6 po-md-6 po-sm-6" name="value" p-decimals-length="2" p-icon="po-icon-finance" p-label="Valor para Utilização" p-thousand-maxlength="13"></po-decimal>
-                <po-input class="po-xl-6 po-lg-6 po-md-6 po-sm-6" name="x" p-label="Endereço do Local"></po-input>
-                <po-multiselect class="po-xl-6 po-lg-6 po-md-6 po-sm-6" name="allowedActivities" p-label="Atividades Permitidas" [p-options]="localActivities"> </po-multiselect>
-                <po-button class="po-xl-12 po-lg-12 po-md-12 po-sm-12 po-mt-3" p-label="Enviar"></po-button>
-            </po-container>
-        </form>
-    </div>
+    <app-fill-form></app-fill-form>
 </div>
