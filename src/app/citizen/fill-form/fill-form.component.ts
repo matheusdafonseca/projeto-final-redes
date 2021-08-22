@@ -3,6 +3,7 @@ import { FormBuilder } from '@angular/forms';
 import { PoMultiselectOption } from '@po-ui/ng-components';
 import { SocketioService } from 'src/services/web-socket.service';
 import { uid } from 'uid';
+import { PoNotificationService } from '@po-ui/ng-components';
 
 @Component({
   selector: 'app-fill-form',
@@ -20,7 +21,8 @@ export class FillFormComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    public webSocket: SocketioService
+    public webSocket: SocketioService,
+    public poNotification: PoNotificationService
   ) {}
 
   ngOnInit(): void {
@@ -51,5 +53,14 @@ export class FillFormComponent implements OnInit {
     }
 
     this.webSocket.sendForm(form);
+
+    this.citizenForm.controls['fullName'].patchValue('');
+    this.citizenForm.controls['mailAddress'].patchValue('');
+    this.citizenForm.controls['localName'].patchValue('');
+    this.citizenForm.controls['value'].patchValue('');
+    this.citizenForm.controls['localAddress'].patchValue('');
+    this.citizenForm.controls['allowedActivities'].patchValue('');
+
+    this.poNotification.success("Formulário enviado com sucesso!");
   }
 }

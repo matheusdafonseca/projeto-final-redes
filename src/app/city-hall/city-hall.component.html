@@ -1,6 +1,6 @@
 <div>
     <div class="po-lg-12 po-text-center po-font-subtitle title">Formulário de Cadastro de Ambientes Públicos Para Práticas Desportivas</div>
-    <div *ngFor="let form on forms">
+    <div *ngFor="let form of forms">
         <app-display-form-hall [form]="form"></app-display-form-hall>
     </div>
 </div>

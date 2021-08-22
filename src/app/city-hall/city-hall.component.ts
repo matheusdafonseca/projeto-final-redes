@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { SocketioService } from 'src/services/web-socket.service';
 
 @Component({
   selector: 'app-city-hall',
@@ -7,15 +8,22 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class CityHallComponent implements OnInit {
 
-  forms: any[];
+  get forms() {
+    return this._forms;
+  }
+  private _forms: any[];
 
-  constructor() { }
+  constructor(private webSocketService: SocketioService) { }
 
   ngOnInit(): void {
-    this.getForms();
+    this.webSocketService.getForms().subscribe((forms: any[])=> {
+      this._forms = forms;
+    })
+    //this._forms = this.webSocketService.getForms();
   }
 
-  getForms(): void {
+  getForms() {
+    
     // this.service.subscribe blabalba q vai retornar os forms
     // this.forms = forms;
   }
