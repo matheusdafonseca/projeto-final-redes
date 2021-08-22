@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { PoMultiselectOption } from '@po-ui/ng-components';
-import { WebSocketService } from 'src/services/web-socket.service';
+import { SocketioService } from 'src/services/web-socket.service';
+import { uid } from 'uid';
 
 @Component({
   selector: 'app-fill-form',
@@ -19,6 +20,7 @@ export class FillFormComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
+    public webSocket: SocketioService
   ) {}
 
   ngOnInit(): void {
@@ -38,11 +40,16 @@ export class FillFormComponent implements OnInit {
   });
 
   sendForm() {
-    console.log(this.citizenForm.controls['fullName'].value);
-    console.log(this.citizenForm.controls['mailAddress'].value);
-    console.log(this.citizenForm.controls['localName'].value);
-    console.log(this.citizenForm.controls['value'].value);
-    console.log(this.citizenForm.controls['localAddress'].value);
-    console.log(this.citizenForm.controls['allowedActivities'].value);
+    const form = {
+      id: uid(20),
+      fullName: this.citizenForm.get('fullName').value,
+      mailAddress: this.citizenForm.get('mailAddress').value,
+      localName: this.citizenForm.get('localName').value,
+      value: this.citizenForm.get('value').value,
+      localAddress: this.citizenForm.get('localAddress').value,
+      allowedActivities: this.citizenForm.get('allowedActivities').value
+    }
+
+    this.webSocket.sendForm(form);
   }
 }

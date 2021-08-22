@@ -1,30 +1,28 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { io, Socket } from 'socket.io-client';
+import { io } from 'socket.io-client'
 
 @Injectable({
   providedIn: 'root'
 })
-export class WebSocketService {
-  
-  socket: Socket;
-  
-  constructor() { 
+export class SocketioService {
+
+  socket;
+
+  constructor() { }
+
+  setupSocketConnection() {
     this.socket = io("http://localhost:3000");
-    this.socket.io.on("error", (error) => {
-      console.log('erro');
-    });
   }
 
-  listen(eventName: string) {
-    return new Observable((subscribe) => {
-      this.socket.on(eventName, (data) => {
-        subscribe.next(data);
-      })
-    })
+  sendForm(form) {
+    this.socket.emit('sendToCityHall', form);
   }
 
-  emit(eventName, data) {
-    this.socket.emit(eventName, data);
+  approveForm(id: string) {
+    this.socket.emit('approveForm', id);
+  }
+
+  getForms() {
+    //this.socket.listen?
   }
 }

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { SocketioService } from 'src/services/web-socket.service';
 
 @Component({
   selector: 'app-display-form-hall',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DisplayFormHallComponent implements OnInit {
 
-  constructor() { }
+  @Input() form;
+
+  constructor(private webSocketService: SocketioService) { }
 
   ngOnInit(): void {
   }
 
+  approveForm(): void {
+    this.webSocketService.approveForm(this.form.id);
+  }  
 }

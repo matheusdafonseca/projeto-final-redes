@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { WebSocketService } from 'src/services/web-socket.service';
+import { SocketioService } from 'src/services/web-socket.service';
 
 @Component({
   selector: 'app-root',
@@ -9,11 +9,9 @@ import { WebSocketService } from 'src/services/web-socket.service';
 export class AppComponent {
   title = 'projeto-final-redes';
 
-  constructor(public webSocketService: WebSocketService) {}
+  constructor(private webSocket: SocketioService) {}
   
   ngOnInit(): void {
-    this.webSocketService.listen('conectei').subscribe(data => {
-      console.log(data);
-    });
+    this.webSocket.setupSocketConnection();
   }
 }
