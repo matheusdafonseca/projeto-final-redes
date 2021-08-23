@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SocketioService } from 'src/services/web-socket.service';
 
 @Component({
   selector: 'app-display',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DisplayComponent implements OnInit {
 
-  constructor() { }
+  get forms() {
+    return this._formsApproved;
+  }
+  private _formsApproved: any[];
+
+  constructor(private webSocketService: SocketioService) { }
 
   ngOnInit(): void {
+    this.webSocketService.getApprovedForms().subscribe((forms: any[])=> {
+      this._formsApproved = forms
+    })
   }
 
 }

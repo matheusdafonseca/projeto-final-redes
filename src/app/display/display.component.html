@@ -1,1 +1,6 @@
-<p>display works!</p>
+<div class="title">
+    <div class="po-lg-12 po-text-center po-font-subtitle title">Portal do Cidadão de Joinville - Consulta de Ambientes Esportivos</div>
+    <div *ngFor="let form of forms">
+        <app-display-form-citizen [formApproved]="form"></app-display-form-citizen>
+    </div>
+</div>

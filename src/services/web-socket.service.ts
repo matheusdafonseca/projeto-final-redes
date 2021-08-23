@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Form } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { io } from 'socket.io-client'
 
@@ -20,6 +21,11 @@ export class SocketioService {
     this.socket.emit('sendToCityHall', form);
   }
 
+  modifyForm(id: string, form) {
+    this.socket.emit('modifyForm', id, form);
+  }
+
+  // OK
   deleteForm(id: string) {
     this.socket.emit('deleteForm', id);
   }
@@ -36,4 +42,13 @@ export class SocketioService {
       });
     })
   }
+
+  getApprovedForms() {
+    return new Observable(subscribe => {
+      this.socket.on('distributeFormDisplay', (forms: any[]) => {
+        subscribe.next(forms);
+      });
+    })
+  }
+
 }

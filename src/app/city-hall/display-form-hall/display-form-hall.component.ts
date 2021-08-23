@@ -33,7 +33,7 @@ export class DisplayFormHallComponent implements OnInit {
   }
 
   modifyForm(): void {
-
+    this.webSocketService.modifyForm(this.form.id, this.form)
   }
 
   // OK

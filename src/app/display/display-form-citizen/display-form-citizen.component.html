@@ -1,1 +1,12 @@
-<p>display-form-citizen works!</p>
+<div class="citizen-form">
+    <form>
+        <po-container class="po-xl-12 po-lg-12 po-md-12 po-sm-12">
+            <po-info class="po-xl-6 po-lg-6 po-md-6 po-sm-6" p-label="Nome Completo" [p-value]="formApproved?.fullName"></po-info>
+            <po-info class="po-xl-6 po-lg-6 po-md-6 po-sm-6" name="mailAddress" p-label="Endereço de Email" [p-value]="formApproved?.mailAddress"></po-info>  
+            <po-info class="po-xl-6 po-lg-6 po-md-6 po-sm-6" name="localname" p-label="Nome do Local" [p-value]="formApproved?.localName"></po-info>
+            <po-info class="po-xl-6 po-lg-6 po-md-6 po-sm-6" name="value" p-decimals-length="2" [p-value]="formApproved?.value" p-icon="po-icon-finance" p-label="Valor para Utilização" p-thousand-maxlength="13"></po-info>
+            <po-info class="po-xl-6 po-lg-6 po-md-6 po-sm-6" name="localAddress" p-label="Endereço do Local" [p-value]="formApproved?.localAddress"></po-info>
+            <po-info class="po-xl-6 po-lg-6 po-md-6 po-sm-6" name="allowedActivities" [p-value]="allowedActivities" p-label="Atividades Permitidas"> </po-info>
+        </po-container>
+    </form>
+</div>
