@@ -7,9 +7,31 @@
             <po-info class="po-xl-6 po-lg-6 po-md-6 po-sm-6" name="value" p-decimals-length="2" [p-value]="form?.value" p-icon="po-icon-finance" p-label="Valor para Utilização" p-thousand-maxlength="13"></po-info>
             <po-info class="po-xl-6 po-lg-6 po-md-6 po-sm-6" name="localAddress" p-label="Endereço do Local" [p-value]="form?.localAddress"></po-info>
             <po-info class="po-xl-6 po-lg-6 po-md-6 po-sm-6" name="allowedActivities" [p-value]="allowedActivities" p-label="Atividades Permitidas"> </po-info>
-            <po-button class="po-xl-4 po-lg-4 po-md-4 po-sm-4 po-mt-3" p-label="Editar"></po-button>
+            <po-button class="po-xl-4 po-lg-4 po-md-4 po-sm-4 po-mt-3" p-label="Editar" (p-click)="openModal()"></po-button>
             <po-button class="po-xl-4 po-lg-4 po-md-4 po-sm-4 po-mt-3" p-label="Excluir" (p-click)="deleteForm()"></po-button>
             <po-button class="po-xl-4 po-lg-4 po-md-4 po-sm-4 po-mt-3" p-label="Aprovar" (p-click)="approveForm()"></po-button>
         </po-container>
     </form>
 </div>
+
+<po-modal #modalEditarForm
+  [p-click-out]="true"
+  [p-hide-close]="true"
+  [p-primary-action]="primaryActionEditarForm"
+  [p-secondary-action]="secondaryActionEditarForm"
+  p-size="medium"
+  p-title="Editar Formulário do Cidadão"
+>
+
+  <form [formGroup]="editCitizenForm" >
+    <po-container class="po-xl-12 po-lg-12 po-md-12 po-sm-12">
+        <po-input class="po-xl-6 po-lg-6 po-md-6 po-sm-6" p-label="Nome Completo" formControlName="fullName"></po-input>
+        <po-email class="po-xl-6 po-lg-6 po-md-6 po-sm-6" name="mailAddress" p-label="Endereço de Email" formControlName="mailAddress"></po-email>  
+        <po-input class="po-xl-6 po-lg-6 po-md-6 po-sm-6" name="localname" p-label="Nome do Local" formControlName="localName"></po-input>
+        <po-decimal class="po-xl-6 po-lg-6 po-md-6 po-sm-6" name="value" p-decimals-length="2" formControlName="value" p-icon="po-icon-finance" p-label="Valor para Utilização" p-thousand-maxlength="13"></po-decimal>
+        <po-input class="po-xl-6 po-lg-6 po-md-6 po-sm-6" name="localAddress" p-label="Endereço do Local" formControlName="localAddress"></po-input>
+        <po-multiselect class="po-xl-6 po-lg-6 po-md-6 po-sm-6" name="allowedActivities" formControlName="allowedActivities" p-label="Atividades Permitidas" [p-options]="localActivities"> </po-multiselect>
+    </po-container>
+  </form>
+
+</po-modal>
